@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku Solver — Instant Puzzle Solutions</title>
+  <meta name="description"
+    content="A beautiful, interactive Sudoku Solver. Choose your grid size, enter a puzzle, and watch the solution appear instantly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <!-- Floating ambient orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <main class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+          <rect x="2" y="2" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2.5" />
+          <rect x="22" y="2" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2.5" />
+          <rect x="2" y="22" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2.5" />
+          <rect x="22" y="22" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2.5" />
+        </svg>
+        <h1>Sudoku Solver</h1>
+      </div>
+      <p class="tagline">Choose a grid, enter your puzzle, hit solve.</p>
+    </header>
+
+    <!-- Grid Size Selector -->
+    <section class="size-selector" id="sizeSelector">
+      <div class="size-option selected" data-size="4">
+        <span class="size-label">4×4</span>
+        <span class="size-sub">Easy</span>
+      </div>
+      <div class="size-option" data-size="9">
+        <span class="size-label">9×9</span>
+        <span class="size-sub">Classic</span>
+      </div>
+      <div class="size-option" data-size="16">
+        <span class="size-label">16×16</span>
+        <span class="size-sub">Expert</span>
+      </div>
+    </section>
+
+    <!-- Sudoku Grid -->
+    <section class="grid-wrapper" id="gridWrapper">
+      <div class="grid-card">
+        <div class="sudoku-grid" id="sudokuGrid"></div>
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+          <div class="spinner"></div>
+          <p class="loading-text">Solving puzzle<span class="dots"></span></p>
+          <p class="loading-stats" id="loadingStats"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Status Message -->
+    <div class="status" id="status"></div>
+
+    <!-- Action Buttons -->
+    <section class="actions" id="actions">
+      <button class="btn btn-solve" id="btnSolve">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
+        Solve
+      </button>
+      <button class="btn btn-hint" id="btnHint">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18h6" />
+          <path d="M10 22h4" />
+          <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" />
+        </svg>
+        Hint
+      </button>
+      <button class="btn btn-clear" id="btnClear">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 6h18" />
+          <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+        </svg>
+        Clear
+      </button>
+      <button class="btn btn-sample" id="btnSample">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v4" />
+          <path d="M12 18v4" />
+          <path d="M4.93 4.93l2.83 2.83" />
+          <path d="M16.24 16.24l2.83 2.83" />
+          <path d="M2 12h4" />
+          <path d="M18 12h4" />
+          <path d="M4.93 19.07l2.83-2.83" />
+          <path d="M16.24 7.76l2.83-2.83" />
+        </svg>
+        Sample
+      </button>
+    </section>
+
+    <footer class="footer">
+      <p>Built with ♥ — Backtracking Algorithm</p>
+    </footer>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
